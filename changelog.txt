@@ -1,0 +1,90 @@
+WIIREMOTEJ CHANGELOG
+---------------------------------------------------------------------------------------------------------------------
+3/12/09 - v1.6b
+ -Fixed a bug preventing extensionDisconnected() events from firing.
+ -Corrected some potential synchronization issues
+---------------------------------------------------------------------------------------------------------------------
+3/07/09 - v1.6a
+ -Updated mouse implementation. Mice are now much more modular. Much easier to
+    create custom mice.
+ -Fixed bug in interleaved (full) IR mode.
+---------------------------------------------------------------------------------------------------------------------
+2/27/09 - v1.6
+ -Modified WiiRemote and BalanceBoard to disconnect on errors during initialization.
+ -Updated extensions to use newest knowledge on how extensions work:
+    -extension codes are now of type long
+    -extensions no longer need decryption methods
+ -Updated extensions to use the constructor
+    WiiRemoteExtension(int payload, WiiRemote remote) for additional flexibility.
+ -Updated guitar extension to be compatible with touch bar on World Tour Guitar.
+ -Added Guitar Hero World Tour Drums extension.
+ -Added utilities to WiiRemoteJ to convert between byte arrays and longs.
+ -Fixed a bug in TiltAccelerometerMouse.
+ -Deprecated waitForDataReadCompletion(). It is now implicit in calling readData(...).
+ -writeData(...) now blocks until the write is acknowledged by the Wii Remote.
+ -Various other bug fixes.
+ -Added BBImpl to test the balance board.
+ -Updated README appropriately.
+---------------------------------------------------------------------------------------------------------------------
+8/13/08 - v1.5b
+ -Modified how pitch and roll work.
+---------------------------------------------------------------------------------------------------------------------
+7/15/08 - v1.5a
+ -Fixed bug where the outgoing connection would fail sometimes after initialization
+ -Fixed bug in Balance Board discovery
+ -Fixed a few typos in the docs
+ -Added button mapping for Wii Guitar
+---------------------------------------------------------------------------------------------------------------------
+7/08/08 - v1.5
+ -Added ability to fetch both remotes and balance boards (both implement WiiDevice)
+ -Added support for full IR mode
+ -Updated README appropriately
+ -Added IRSensitivitySettings class which contains the default Wii sensitivity settings
+ -Made IR enabling more reliable. It shouldn't fail any more
+ -Corrected bug in balance board mass calculation
+---------------------------------------------------------------------------------------------------------------------
+7/03/08 - v1.4
+ -Fixed bugs with multiple remotes
+ -Made Exceptions thrown when connecting via findRemote() propagate to user
+ -Added Balance Board support
+ -Updated README and LICENSE appropriately
+---------------------------------------------------------------------------------------------------------------------
+2/24/08 - v1.3
+ -Improved thread cleanup after disconnect.
+ -Added ability to create "fake" WiiRemotes for use in initializing events
+ -Updated README and LICENSE
+---------------------------------------------------------------------------------------------------------------------
+1/14/08 - v1.2
+ -Workaround for BlueSoleil bug added.
+ -GuitarExtension added
+---------------------------------------------------------------------------------------------------------------------
+12/26/07 - v1.1
+ -Numerous bug fixes. I've forgotten what they all are.
+ -Added support for systems that don't have mice.
+---------------------------------------------------------------------------------------------------------------------
+6/25/07 - v1.0
+ -Totally redid ButtonMaps to allow multiple types of actions (key presses, mouse
+    clicks, and mouse scrolls) to coexist.
+ -ButtonMap subclasses still exist, but now serve only to provide convenience
+    constructors. They have no additional or specialized functionality.
+ -ButtonMaps can also now require buttons to be pressed on both the remote and a
+    peripheral to trigger.
+ -Added isAnyPressed and isOnlyPressed as button evaluation methods.
+ -By default, no lights turn on when the remote is connected (all four lights used to turn
+    on). You should turn on at least one light so that users know the remote is on.
+ -Got my hands on and tested a classic controller. There were bugs. They are fixed.
+ -Changed left and right triggers on the classic controller to percents instead of values.
+ -Fixed a lot of bugs.
+ -Improved IRAccelerometerMouse to be more reliable when the mouse is being
+    moved around (there is some acceleration). It's not where I want it yet, but it's better.
+---------------------------------------------------------------------------------------------------------------------
+4/19/07 - v0.9
+ -Fixed a memory leak with WRButtonEvents
+ -Fixed/clarified some documentation
+ -Added mouse-wheel button mapping support
+ -Fixed bug where button mapping could cause keys to "stick"
+ -Improved efficiency of button mapping in general
+ -Many changes to the test/sample file WRLImpl.java (to demo scrolling)
+---------------------------------------------------------------------------------------------------------------------
+4/03/07 - v0.8
+ -Initial release!
